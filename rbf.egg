@@ -1,0 +1,10 @@
+;;;; -*- Scheme -*-
+
+((synopsis "Bindings for the Radial Basis Function interpolation routines by John Burkardt.")
+ (license "GPL-3")
+ (category math)
+ (test-dependencies test srfi-1)
+ (author "Ivan Raikov")
+ (component-options (csc-options "-c++"))
+ (components (extension rbf (custom-build "build.sh")))
+ )
