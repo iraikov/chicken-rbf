@@ -21,14 +21,14 @@
     ))
           
   
-(let* ((spacing 20.)
-       (xdim 100.) (ydim 100.) (xs 20.) (ys 20.) 
+(let* ((spacing 40.) (peak 20.)
+       (xdim 100.) (ydim 100.) (xs spacing) (ys spacing) 
        (nxsteps (inexact->exact (+ 1 (round (/ (* 2 xdim) xs)))))
        (nysteps (inexact->exact (+ 1 (round (/ (* 2 ydim) ys)))))
        (xpoints (list-tabulate nxsteps (lambda (x) (- (* x xs) xdim))))
        (ypoints (list-tabulate nysteps (lambda (y) (- (* y ys) ydim))))
        (coords (meshgrid xpoints ypoints))
-       (rpoints (list-tabulate (/ (length coords) 2) (lambda (i) 10.)))
+       (rpoints (list-tabulate (/ (length coords) 2) (lambda (i) peak)))
        (ip (make-interpolant 'ga 2 (/ spacing 2.71828)
                              (list->f64vector coords)
                              (list->f64vector rpoints))))
