@@ -111,8 +111,8 @@
       (assert (= npoints (f64vector-length ypoints)))
       (let ((weights (make-f64vector npoints))
             (basis-ptr (case basis
-                         ((mq multiquadric) cphi1)
-                         ((imq inverse-multiquadric) cphi2)
+                         ((mq multiquadratic) cphi1)
+                         ((imq inverse-multiquadratic) cphi2)
                          ((tp thin-plate) cphi3)
                          ((ga gaussian) cphi4)
                          (else (error 'make-interpolant "unknown basis" basis)))))
@@ -132,8 +132,8 @@
            (ni (quotient (f64vector-length ipoints) m))
            (fpoints (make-f64vector ni))
            (basis-ptr (case basis
-                        ((mq multiquadric) cphi1)
-                        ((imq inverse-multiquadric) cphi2)
+                        ((mq multiquadratic) cphi1)
+                        ((imq inverse-multiquadratic) cphi2)
                         ((tp thin-plate) cphi3)
                         ((ga gaussian) cphi4)
                         (else (error 'make-interpolant "unknown basis" basis))))

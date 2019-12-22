@@ -6,5 +6,9 @@
  (test-dependencies test srfi-1)
  (author "Ivan Raikov")
  (component-options (csc-options "-c++"))
- (components (extension rbf (custom-build "build.sh")))
+ (components (c-object r8lib
+                       (source "r8lib.cpp"))
+             (c-object rbf_interp_nd
+                       (source "rbf_interp_nd.cpp"))
+             (extension rbf (objects r8lib rbf_interp_nd)))
  )
